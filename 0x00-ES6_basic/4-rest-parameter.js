@@ -1,3 +1,7 @@
 export default function returnHowManyArguments(...Args) {
-  console.log(Args.length);
+  let arglength = Args.length;
+  if (arglength === undefined) {
+    const arglength = 0;
+  }
+  return arglength
 }
