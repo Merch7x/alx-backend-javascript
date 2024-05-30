@@ -8,14 +8,21 @@ export default function handleProfileSignup(firstname, lastname, filename) {
   return Promise.allSettled([signpromise, uploadpromise])
     .then((results) => {
       results.forEach((result) => {
-        console.log(
-          [
+        if (result.status === 'fulfilled') {
+          console.log([
             {
               status: result.status,
-              value: [result.value || result.reason],
+              value: result.value,
             },
-          ],
-        );
+          ]);
+        } else {
+          console.log([
+            {
+              status: result.status,
+              value: result.reason,
+            },
+          ]);
+        }
       });
     });
 }
