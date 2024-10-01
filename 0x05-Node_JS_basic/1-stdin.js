@@ -7,3 +7,8 @@ process.stdin.on('data', (input) => {
   console.log('This important software is now closing')
   process.exit();
 });
+
+process.on('SIGINT', () => {
+  console.log('This important software is now closing')
+  process.exit(0);
+});
